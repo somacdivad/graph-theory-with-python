@@ -1,2 +1,6 @@
+# Ignore virtual environments
 .venv
 venv
+
+# Ignore VS Code settings
+.vscode

@@ -36,13 +36,13 @@ def adjacency_matrix(graph):
     return adj
 
 
-def show(graph, output_filename):
+def show(graph, output_filename, notebook=False):
     """
     Saves an HTML file locally containing a
     visualization of the graph, and returns
     a pyvis Network instance of the graph.
     """
-    g = Network(directed=graph.is_directed)
+    g = Network(directed=graph.is_directed, notebook=notebook)
     g.add_nodes(graph.nodes)
     g.add_edges(graph.edges)
     g.show(output_filename)
@@ -107,10 +107,7 @@ def star_graph(num_nodes):
 def _degrees(graph):
     """Return a dictionary of degrees for each node in the graph"""
     adj_list = adjacency_dict(graph)
-    degrees = {
-        node: len(neighbors)
-        for node, neighbors in adj_list.items()
-    }
+    degrees = {node: len(neighbors) for node, neighbors in adj_list.items()}
     return degrees
 
 
